@@ -1,0 +1,33 @@
+mdebug firmware for rpi pico / rp2040
+-------------------------------------
+
+WARNING: WORK IN PROGRESS. DEFAULT PINOUT MAY CHANGE.
+
+                 +---USB---+
+   debug-uart-tx |o        :
+   debug-uart-rx |o
+             gnd |o
+swdclk-to-target |o
+ swdio-to-target |o
+                 |o
+                 |o
+             gnd |o
+                 :
+
+building:
+  1. checkout along-side pico-sdk
+  2. mkdir build && cd build && make ..
+  3. cd build && make
+
+third party code:
+  swd-io.pio and swd-pio.h based on picoprobe
+  https://github.com/raspberrypi/picoprobe
+
+mdebug cortex-m debugger available here:
+  https://github.com/swetland/mdebug/
+
+todo:
+- investigate performance issues vis lpclink2 implementation
+- support level shifters (needs custom/addon board)
+- add swo/uart support
+
